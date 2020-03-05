@@ -1,4 +1,13 @@
-# Go Gin Example [![rcard](https://goreportcard.com/badge/github.com/EDDYCJY/go-gin-example)](https://goreportcard.com/report/github.com/EDDYCJY/go-gin-example) [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://godoc.org/github.com/EDDYCJY/go-gin-example) [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/EDDYCJY/go-gin-example/master/LICENSE)
+# Go Gin App [![rcard](https://goreportcard.com/badge/github.com/luanluanxu/go-gin-app)](https://goreportcard.com/report/github.com/luanluanxu/go-gin-app) [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://godoc.org/github.com/luanluanxu/go-gin-app) [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/EDDYCJY/go-gin-app/master/LICENSE)
+
+## Tips:
+
+这是从`go-gin-example`延伸出来的支持多项目的版本
+
+需要注意的点有：
+- config,runtime目录放在了cmd/my_app下
+- 与业务相关的存在了internal/my_app下
+- `gin-swagger`生成的指令需要增加两个参数 例如：`swag -d internal/my_app -o internal/my_app`
 
 `gin` 的一个例子，包含许多有用特性
 
@@ -28,7 +37,7 @@
 
 ## 安装
 ```
-$ go get github.com/EDDYCJY/go-gin-example
+$ go get github.com/luanluanxu/go-gin-app
 ```
 
 ## 如何运行
@@ -44,7 +53,7 @@ $ go get github.com/EDDYCJY/go-gin-example
 
 ### 配置
 
-你应该修改 `conf/app.ini` 配置文件
+你应该修改 `cmd/my_app/conf/app.ini` 配置文件
 
 ```
 [database]
@@ -67,7 +76,7 @@ IdleTimeout = 200
 
 ### 运行
 ```
-$ cd $GOPATH/src/go-gin-example
+$ cd $GOPATH/src/go-gin-app/cmd/my_app
 
 $ go run main.go 
 ```
@@ -79,17 +88,21 @@ $ go run main.go
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /auth                     --> github.com/EDDYCJY/go-gin-example/routers/api.GetAuth (3 handlers)
-[GIN-debug] GET    /swagger/*any             --> github.com/EDDYCJY/go-gin-example/vendor/github.com/swaggo/gin-swagger.WrapHandler.func1 (3 handlers)
-[GIN-debug] GET    /api/v1/tags              --> github.com/EDDYCJY/go-gin-example/routers/api/v1.GetTags (4 handlers)
-[GIN-debug] POST   /api/v1/tags              --> github.com/EDDYCJY/go-gin-example/routers/api/v1.AddTag (4 handlers)
-[GIN-debug] PUT    /api/v1/tags/:id          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.EditTag (4 handlers)
-[GIN-debug] DELETE /api/v1/tags/:id          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.DeleteTag (4 handlers)
-[GIN-debug] GET    /api/v1/articles          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.GetArticles (4 handlers)
-[GIN-debug] GET    /api/v1/articles/:id      --> github.com/EDDYCJY/go-gin-example/routers/api/v1.GetArticle (4 handlers)
-[GIN-debug] POST   /api/v1/articles          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.AddArticle (4 handlers)
-[GIN-debug] PUT    /api/v1/articles/:id      --> github.com/EDDYCJY/go-gin-example/routers/api/v1.EditArticle (4 handlers)
-[GIN-debug] DELETE /api/v1/articles/:id      --> github.com/EDDYCJY/go-gin-example/routers/api/v1.DeleteArticle (4 handlers)
+[GIN-debug] GET    /auth                     --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api.GetAuth (3 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.WrapHandler.func1 (3 handlers)
+[GIN-debug] POST   /upload                   --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api.UploadImage (3 handlers)
+[GIN-debug] GET    /api/v1/tags              --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.GetTags (4 handlers)
+[GIN-debug] POST   /api/v1/tags              --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.AddTag (4 handlers)
+[GIN-debug] PUT    /api/v1/tags/:id          --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.EditTag (4 handlers)
+[GIN-debug] DELETE /api/v1/tags/:id          --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.DeleteTag (4 handlers)
+[GIN-debug] POST   /tags/export              --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.ExportTag (3 handlers)
+[GIN-debug] POST   /tags/import              --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.ImportTag (3 handlers)
+[GIN-debug] GET    /api/v1/articles          --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.GetArticles (4 handlers)
+[GIN-debug] GET    /api/v1/articles/:id      --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.GetArticle (4 handlers)
+[GIN-debug] POST   /api/v1/articles          --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.AddArticle (4 handlers)
+[GIN-debug] PUT    /api/v1/articles/:id      --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.EditArticle (4 handlers)
+[GIN-debug] DELETE /api/v1/articles/:id      --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.DeleteArticle (4 handlers)
+[GIN-debug] POST   /api/v1/articles/poster/generate --> github.com/luanluanxu/go-gin-app/internal/my_app/routers/api/v1.GenerateArticlePoster (4 handlers)
 
 Listening port is 8000
 Actual pid is 4393

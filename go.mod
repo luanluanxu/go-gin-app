@@ -1,4 +1,4 @@
-module github.com/EDDYCJY/go-gin-example
+module github.com/luanluanxu/go-gin-app
 
 go 1.13
 

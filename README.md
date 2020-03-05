@@ -1,12 +1,22 @@
-# Go Gin Example [![rcard](https://goreportcard.com/badge/github.com/EDDYCJY/go-gin-example)](https://goreportcard.com/report/github.com/EDDYCJY/go-gin-example) [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://godoc.org/github.com/EDDYCJY/go-gin-example) [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/EDDYCJY/go-gin-example/master/LICENSE)
+# Go Gin App [![rcard](https://goreportcard.com/badge/github.com/luanluanxu/go-gin-app)](https://goreportcard.com/report/github.com/luanluanxu/go-gin-app) [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://godoc.org/github.com/luanluanxu/go-gin-app) [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/EDDYCJY/go-gin-app/master/LICENSE)
 
 An example of gin contains many useful features
 
-[简体中文](https://github.com/EDDYCJY/go-gin-example/blob/master/README_ZH.md)
+## Tips:
+
+This project is the multiple program version fork from `go-gin-example`
+
+Whats needs attention：
+- The `config`,`runtime` directly now in the `cmd/my_app`
+- The internal files now in the `internal/my_app`
+- When you use `gin-swagger` to generate Swagger files,you need add 2 args such `swag -d internal/my_app -o internal/my_app`
+
+
+[简体中文](https://github.com/luanluanxu/go-gin-app/blob/master/README_ZH.md)
 
 ## Installation
 ```
-$ go get github.com/EDDYCJY/go-gin-example
+$ go get github.com/luanluanxu/go-gin-app
 ```
 
 ## How to run
@@ -18,7 +28,7 @@ $ go get github.com/EDDYCJY/go-gin-example
 
 ### Ready
 
-Create a **blog database** and import [SQL](https://github.com/EDDYCJY/go-gin-example/blob/master/docs/sql/blog.sql)
+Create a **blog database** and import [SQL](https://github.com/luanluanxu/go-gin-app/blob/master/docs/sql/blog.sql)
 
 ### Conf
 
@@ -44,7 +54,7 @@ IdleTimeout = 200
 
 ### Run
 ```
-$ cd $GOPATH/src/go-gin-example
+$ cd $GOPATH/src/go-gin-app
 
 $ go run main.go 
 ```
@@ -56,17 +66,17 @@ Project information and existing API
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /auth                     --> github.com/EDDYCJY/go-gin-example/routers/api.GetAuth (3 handlers)
-[GIN-debug] GET    /swagger/*any             --> github.com/EDDYCJY/go-gin-example/vendor/github.com/swaggo/gin-swagger.WrapHandler.func1 (3 handlers)
-[GIN-debug] GET    /api/v1/tags              --> github.com/EDDYCJY/go-gin-example/routers/api/v1.GetTags (4 handlers)
-[GIN-debug] POST   /api/v1/tags              --> github.com/EDDYCJY/go-gin-example/routers/api/v1.AddTag (4 handlers)
-[GIN-debug] PUT    /api/v1/tags/:id          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.EditTag (4 handlers)
-[GIN-debug] DELETE /api/v1/tags/:id          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.DeleteTag (4 handlers)
-[GIN-debug] GET    /api/v1/articles          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.GetArticles (4 handlers)
-[GIN-debug] GET    /api/v1/articles/:id      --> github.com/EDDYCJY/go-gin-example/routers/api/v1.GetArticle (4 handlers)
-[GIN-debug] POST   /api/v1/articles          --> github.com/EDDYCJY/go-gin-example/routers/api/v1.AddArticle (4 handlers)
-[GIN-debug] PUT    /api/v1/articles/:id      --> github.com/EDDYCJY/go-gin-example/routers/api/v1.EditArticle (4 handlers)
-[GIN-debug] DELETE /api/v1/articles/:id      --> github.com/EDDYCJY/go-gin-example/routers/api/v1.DeleteArticle (4 handlers)
+[GIN-debug] GET    /auth                     --> github.com/luanluanxu/go-gin-app/routers/api.GetAuth (3 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/luanluanxu/go-gin-app/vendor/github.com/swaggo/gin-swagger.WrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /api/v1/tags              --> github.com/luanluanxu/go-gin-app/routers/api/v1.GetTags (4 handlers)
+[GIN-debug] POST   /api/v1/tags              --> github.com/luanluanxu/go-gin-app/routers/api/v1.AddTag (4 handlers)
+[GIN-debug] PUT    /api/v1/tags/:id          --> github.com/luanluanxu/go-gin-app/routers/api/v1.EditTag (4 handlers)
+[GIN-debug] DELETE /api/v1/tags/:id          --> github.com/luanluanxu/go-gin-app/routers/api/v1.DeleteTag (4 handlers)
+[GIN-debug] GET    /api/v1/articles          --> github.com/luanluanxu/go-gin-app/routers/api/v1.GetArticles (4 handlers)
+[GIN-debug] GET    /api/v1/articles/:id      --> github.com/luanluanxu/go-gin-app/routers/api/v1.GetArticle (4 handlers)
+[GIN-debug] POST   /api/v1/articles          --> github.com/luanluanxu/go-gin-app/routers/api/v1.AddArticle (4 handlers)
+[GIN-debug] PUT    /api/v1/articles/:id      --> github.com/luanluanxu/go-gin-app/routers/api/v1.EditArticle (4 handlers)
+[GIN-debug] DELETE /api/v1/articles/:id      --> github.com/luanluanxu/go-gin-app/routers/api/v1.DeleteArticle (4 handlers)
 
 Listening port is 8000
 Actual pid is 4393
